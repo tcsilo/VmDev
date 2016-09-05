@@ -30,8 +30,8 @@
             } else {
                 self.postData.posts.push(data);
             }
-
         });
+
 
         $http.get('https://jsonplaceholder.typicode.com/comments').success(function(data) {
             if (data.constructor === Array) {
@@ -47,16 +47,27 @@
     app.controller('PostController', ['$http', function() {
         var self = this;
         self.status = "";
+        self.imgSource = {};
         self.PostStatusUpdate = function(status) {
             Data.posts.unshift({
                 "userId": "30",
                 "id": "30",
                 "title": "New status update!",
                 "body": self.status,
-                "image" : ""
+                "image": ""
             });
-        };
+            self.status = "";
+            var f = document.getElementById('myInput').files[0];
+            console.log(f);
 
+            var r = new FileReader();
+            r.onloadend = function(e) {
+                var data = e.target.result;
+                self.imgSource = data;
+            };
+            // r.readAsBinaryString(f);
+            r.readAsDataURL(f);
+        };
     }]);
 
     app.controller("PicChangeController", ['$http', function($http) {

@@ -275,6 +275,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     Update Status
                 </div>
+                <div>
+                    <img ng-src="{{postCtrl.imgSource}}">
+                </div>
                 <div class="modal-body">
                     <form class="form center-block">
                         <div class="form-group">
@@ -288,9 +291,9 @@
                         <ul class="pull-left list-inline">
                             <li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
                             <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li>
-                            <li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
-                            <input id="myInput" type="file" style="visibility:hidden" />
+                            <li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>                
                         </ul>
+                        <input id="myInput" type="file" file-model = "myFile" />
                     </div>
                 </div>
             </div>
