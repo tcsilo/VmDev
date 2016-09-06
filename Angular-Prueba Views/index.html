@@ -168,9 +168,9 @@
                             </div>
                         </div>
             <div ng-controller="HomeController as homeCtrl">
-                <div class="panel panel-default" ng-repeat="articulo in homeCtrl.Data.posts">
+                <div class="panel panel-default" ng-show="homeCtrl.dataLoaded" ng-repeat="articulo in homeCtrl.Data.posts | limitTo: 5">
                     <div class="panel-heading">
-                        <h4>{{articulo.data.title}} with {{articulo.likes}} likes!</h4></div>
+                        <h4>Post:{{articulo.data.id}} - {{articulo.data.title}} with {{articulo.likes}} likes!</h4></div>
                     <div class="panel-body">
                         <p>{{articulo.data.body}}</p>
                         <img src="//placehold.it/150x150" class="img-circle pull-right"> </img>
@@ -180,7 +180,7 @@
                             <p>{{comment.body}}</p>
                         </div>
                         <hr>
-                        <form>
+                        <form novalidate>
                             <div class="input-group">
                                 <div class="input-group-btn">
                                     <button ng-click="homeCtrl.plusLikes(articulo)"class="btn btn-default">+1</button>
